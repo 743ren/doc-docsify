@@ -29,12 +29,7 @@
       auto2top: true, // 切换页面自动跳到顶部
       relativePath: false, // 启用相对路径
       mergeNavbar: true, // 小屏设备合并导航栏到侧边栏
-      // formatUpdated: '{YY}-{MM}-{DD} {HH}:{mm}', // 显示文档更新日期
-      timeUpdater: { // 为文档自动添加更新时间
-        text: ">最后更新: {docsify-updated}",
-        formatUpdated: "{YYYY}/{MM}/{DD}",
-        whereToPlace: "top",  // "top" or "bottom", default to "bottom"
-      },
+      formatUpdated: '{YY}-{MM}-{DD} {HH}:{mm}', // 显示文档更新日期
       search: { // 搜索
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
         paths: 'auto', // or 'auto'
@@ -85,19 +80,6 @@
         height: 300 // Max height
       },
       busuanzi: true, // 不蒜子访问统计
-      // themeColor: "#648099", // 深色模式设置
-      // darkMode: { // 默认的神色模式配置，如果修改可以打开
-      //   dark: {
-      //     background: "#1c2022",
-      //     toggleBtnBg: "#34495e",
-      //     textColor: "#b4b4b4"
-      //   },
-      //   light: {
-      //     background: "white",
-      //     toggleBtnBg: "var(--theme-color)",
-      //     textColor: "var(--theme-color)"
-      //   }
-      // },
     }
   </script>
   <!-- Docsify v4 -->
@@ -118,12 +100,8 @@
   <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <!-- plantuml 解析支持 -->
   <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script> 
-  <!-- 深色模式切换 -->
-  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/index.min.js"></script>  -->
   <!-- 侧边栏折叠 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script> 
-  <!-- 为文档自动添加更新时间 -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script> 
   <!-- 图片显示优化 -->
   <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script> 
   <!-- 代码块不全部展示 -->
