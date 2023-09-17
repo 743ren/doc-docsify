@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> <!-- 主题 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css"> <!-- mermaid 样式-->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/style.min.css" /> <!-- 深色模式切换 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> <!-- 侧边栏折叠 -->
+</head>
+<body>
+  <div id="app">加载中...</div>
+  <script>
+   
+    window.$docsify = {
+      name: '一些文档',
+      nameLink: '/', // 点击标题跳到首页
+      // logo: '/_media/logo.svg', // 侧边栏图标，没生效
+      repo: '743ren/Docs-docsify', // Github 地址
+      loadSidebar: true, // 显示侧边栏
+      autoHeader: true, // sidebar的标题自动添加到文档标题
+      loadNavbar: false, // 显示导航栏
+      coverpage: true, // 显示封面
+      onlyCover: false, // 为true不能在封面下滑到首页
+      subMaxLevel: 5, // 侧边栏显示5级标题，`#`写的1级标题显示不出来
+      auto2top: true, // 切换页面自动跳到顶部
+      relativePath: false, // 启用相对路径
+      mergeNavbar: true, // 小屏设备合并导航栏到侧边栏
+      // formatUpdated: '{YY}-{MM}-{DD} {HH}:{mm}', // 显示文档更新日期
+      timeUpdater: { // 为文档自动添加更新时间
+        text: ">最后更新: {docsify-updated}",
+        formatUpdated: "{YYYY}/{MM}/{DD}",
+        whereToPlace: "top",  // "top" or "bottom", default to "bottom"
+      },
+      search: { // 搜索
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto', // or 'auto'
+        placeholder: {
+          '/': '搜索'
+        },
+        noData: {
+          '/': '找不到结果'
+        },
+        depth: 6, // 搜索标题的最大层级, 1 - 6
+        hideOtherSidebarContent: true, // 是否隐藏其他侧边栏内容
+      },
+      markdown: { // 支持 mermaid
+        renderer: {
+          code: function(code, lang) {
+            if (lang === "mermaid") {
+              // 最大的问题就是原来 code 这里写的是 
+              // mermaid.render('mermaid-svg-' + num++, code)
+              // 但这句执行有问题，不懂
+              return ('<div class="mermaid">' + code + "</div>");
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      },
+      plantuml: {
+        skin: 'default',
+      },
+      plugins: [
+        function(hook) {
+          var footer = [
+            '<hr/>',
+            '<footer>',
+            '<span>&copy;2023&nbsp;&nbsp;</span>',
+            '<span>Powered by ',
+            '<a href="https://docsify.js.org/#/" target="_blank">docsify</a> v',
+            window.Docsify.version, // docsify的版本
+            '</span>',
+            '</footer>'
+            ].join('');
+          hook.afterEach(function(html) {
+            return html + footer;
+          });
+        }
+      ],
+      hideCode: { // 代码块不全部展示
+        scroll: false, // Enable scrolling
+        height: 300 // Max height
+      },
+      busuanzi: true, // 不蒜子访问统计
+      // themeColor: "#648099", // 深色模式设置
+      // darkMode: { // 默认的神色模式配置，如果修改可以打开
+      //   dark: {
+      //     background: "#1c2022",
+      //     toggleBtnBg: "#34495e",
+      //     textColor: "#b4b4b4"
+      //   },
+      //   light: {
+      //     background: "white",
+      //     toggleBtnBg: "var(--theme-color)",
+      //     textColor: "var(--theme-color)"
+      //   }
+      // },
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <!-- 显示 emoji -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <!-- 搜索 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script> 
+   <!-- 图片缩放 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 复制代码 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script> 
+  <!-- 分页，页面底部有上一页，下一页的按钮 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script> 
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script> 
+   <!-- mermaid 解析支持 -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <!-- plantuml 解析支持 -->
+  <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script> 
+  <!-- 深色模式切换 -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify-dark-mode@latest/dist/index.min.js"></script>  -->
+  <!-- 侧边栏折叠 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script> 
+  <!-- 为文档自动添加更新时间 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script> 
+  <!-- 图片显示优化 -->
+  <script src="https://unpkg.com/@h-hg/docsify-image-caption/dist/docsify-image-caption.min.js"></script> 
+  <!-- 代码块不全部展示 -->
+  <script src="https://unpkg.com/docsify-hide-code"></script> 
+  <!-- 不蒜子访问统计 -->
+  <script src="https://unpkg.com/docsify-busuanzi@1.0.1/dist/docsify-busuanzi.min.js"></script> 
+  <!-- 代码高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-kotlin.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-swift.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-mermaid.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-url.min.js"></script>
+  <!-- <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-objc.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-dart.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-rust.min.js"></script> -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cpp.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-cmake.min.js"></script> -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-git.min.js"></script> -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-sql.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-toml.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script> -->
+</body>
+</html>
