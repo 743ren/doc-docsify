@@ -305,6 +305,10 @@ markdown 图片格式
 {% endgallery %}
 ```
 
+### 系列文章
+
+文章 front-matter 写 series: xxx，然后在别的文章如果自己也写了相同的 series: xxx，那么文章中写 `{% series %}`，如果自己的 front-matter 没写 series: xxx，那么文章中写 `{% series xxx %}`，就会将有 series: xxx 的文章用列表显示出来，样式比较简陋。
+
 ### 其它
 
 mermaid 不是 markdown 那语法，得[单独配置](https://butterfly.js.org/posts/4aa8abbe/#mermaid)
@@ -319,6 +323,14 @@ mermaid 不是 markdown 那语法，得[单独配置](https://butterfly.js.org/p
 
 [全局吸底音乐播放具体介绍](https://butterfly.js.org/posts/507c070f/)，测试 QQ 音乐不行，不能自动播放，data-autoplay 为 true 是每次点击空白都自动切换到下一首了。
 
+侧边栏显示的运行时间
+
+```yaml
+runtimeshow:
+  enable: true
+  publish_date: 2020/1/1 00:00:00 # 调整为开通时间或最早一篇文章时间
+```
+
 ### 问题
 
 - 评论系统用的 Twikoo，不能配置，只能全局，page 页面也有评论。
@@ -326,7 +338,7 @@ mermaid 不是 markdown 那语法，得[单独配置](https://butterfly.js.org/p
 
 ## 插件
 
-- [abbrlink](https://github.com/rozbo/hexo-abbrlink) 文章链接变成一个字符串，有利于 SEO。`hexo clean` 之后才能看到效果。类似的插件 [hexo-friendly-link](https://github.com/houyonglu/hexo-friendly-link)。但这样内部链接会有问题
+- [abbrlink](https://github.com/rozbo/hexo-abbrlink) 文章链接变成一个字符串，有利于 SEO。`hexo clean` 之后才能看到效果。类似的插件 [hexo-friendly-link](https://github.com/houyonglu/hexo-friendly-link)。
 - [hexo-filter-nofollow](https://github.com/hexojs/hexo-filter-nofollow) 为网站使用到的所有外链添加 `rel="noopener external nofollow noreferrer"`，可以有效地加强网站 SEO 和防止权重流失
 - [hexo-bridge](https://github.com/DeepSpaceHarbor/hexo-bridge) 在线管理博客，通过 http://localhost:4000/bridge/ 访问，显示所有 posts/page/主题/插件
 - [hexo-generator-alias](https://github.com/hexojs/hexo-generator-alias) 文章里链接失效可以配置别名，相当于重定向，在 Hexo 配置中加
@@ -341,9 +353,10 @@ mermaid 不是 markdown 那语法，得[单独配置](https://butterfly.js.org/p
 - [hexo-tag-mmedia](https://github.com/u2sb/hexo-tag-mmedia) 在文档中显示各种音频视频
 - [hexo-tag-map](https://github.com/kuole-o/hexo-tag-map) 在文档中显示地图
 - [hexo-pdf](https://github.com/superalsrk/hexo-pdf/) 在文档中显示pdf
-- [hexo-douban-card](https://github.com/TankNee/hexo-douban-card) 文章中显示豆瓣信息的卡片
+- ~~[hexo-douban-card](https://github.com/TankNee/hexo-douban-card) 文章中显示豆瓣信息的卡片。比如 `{% douban book 30376420 %}`，会在根目录下生成一个 json 文件，json 里面看图片链接能显示出图片，但是它的卡片上就显示不出来。~~
 - [hexo-lazyload-image](https://github.com/Troy-Yang/hexo-lazyload-image) 图片延迟加载，滑到那再加载
 - [hexo-readmore](https://github.com/rqh656418510/hexo-readmore)、[hexo-plugin-readmore](https://github.com/snowdreams1006/hexo-plugin-readmore) 公众号引流，想看完整的文章引导关注公众号
+- [hexo-minify](https://github.com/lete114/hexo-minify) 资源压缩
 
 ## 搜索引擎收录
 

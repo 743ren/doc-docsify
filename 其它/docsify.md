@@ -1,5 +1,7 @@
 [官方文档](https://docsify.js.org/#/zh-cn/)
 
+本地预览执行 `docsify serve`
+
 1. 在标题后写 `<!-- {docsify-ignore} -->` 排除在侧边栏显示，在文档第一个标题后添加 `<!-- {docsify-ignore-all} -->` 可以忽略文档标题。
 2. 文件名后加内容以更好的支持 SEO，比如 `[Guide](guide.md "The greatest guide in the world")`。
 3. [扩展语法](https://docsify.js.org/#/zh-cn/helpers)，包含强调内容，图片尺寸，html 和markdown 混用等。
